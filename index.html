@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" data-loading>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="theme-color" content="#0c1117"/>
+  <meta name="color-scheme" content="dark"/>
+  <meta name="description" content="Learn the Mandarin natives actually speak. Search words, explore by HSK level, and rebuild real sentences token by token."/>
+  <title>漢·字 — Learn Mandarin from native voices</title>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,600&family=JetBrains+Mono:wght@500;700&display=swap"/>
+  <link rel="stylesheet" href="site.css?v=20260923"/>
+</head>
+<body>
+<div id="mc-loader" role="status" aria-live="polite" aria-label="Loading">
+  <div class="mc-loader-mark" aria-hidden="true">
+    <span class="mc-loader-ring"></span>
+    <span class="mc-loader-hz" lang="zh">漢</span>
+  </div>
+  <div class="mc-loader-bar"><span></span></div>
+  <p class="mc-loader-msg" id="mc-loader-msg">Loading audio index…</p>
+</div>
+<a href="#mc-main" class="mc-skip">Skip to content</a>
+<div class="mc-shell" id="mc-app">
+
+  <div id="mc-live-feedback" class="mc-sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <nav class="mc-topnav" aria-label="Primary">
+    <a class="mc-logo" href="#home" aria-label="Hanzi">
+      <span class="mc-logo-hz" lang="zh">漢<i aria-hidden="true">·</i>字</span>
+    </a>
+    <div class="mc-tabs-wrap">
+      <div class="mc-tabs">
+        <button class="mc-tab" data-screen="search">Search</button>
+        <button class="mc-tab" data-screen="explore">Explore</button>
+        <button class="mc-tab" data-screen="games">Games</button>
+        <button class="mc-tab" data-screen="collection">Collection <span class="mc-badge" style="display:none">0</span></button>
+      </div>
+    </div>
+    <div class="mc-nav-pinned">
+      <button class="mc-tab mc-tab-donate" data-screen="pix"><span class="mc-tab-heart" aria-hidden="true">♥</span> Donate</button>
+      <button class="mc-theme-toggle" id="mc-theme-toggle" type="button" aria-label="Toggle theme" title="Toggle light / dark">
+        <svg class="mc-th-ico mc-th-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <svg class="mc-th-ico mc-th-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BOTTOM NAV (mobile only) -->
+  <nav class="mc-bottomnav" aria-label="Primary mobile">
+    <button class="mc-tab mc-bnav-tab" data-screen="search">
+      <svg class="mc-bnav-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Search</span>
+    </button>
+    <button class="mc-tab mc-bnav-tab" data-screen="explore">
+      <svg class="mc-bnav-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.3" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.3" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.3" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      <span>Explore</span>
+    </button>
+    <button class="mc-tab mc-bnav-tab" data-screen="games">
+      <svg class="mc-bnav-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="2.5" y="8" width="19" height="9" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5v4M6 12.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="16" cy="11" r="1" fill="currentColor"/><circle cx="18.2" cy="13.2" r="1" fill="currentColor"/></svg>
+      <span>Games</span>
+    </button>
+    <button class="mc-tab mc-bnav-tab" data-screen="collection">
+      <svg class="mc-bnav-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 3.5h12a.5.5 0 0 1 .5.5v17l-6.5-4-6.5 4v-17a.5.5 0 0 1 .5-.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>Collection</span>
+      <span class="mc-badge mc-bnav-badge" style="display:none">0</span>
+    </button>
+  </nav>
+
+  <!-- HOME -->
+  <main id="mc-main" class="mc-screen" data-screen="home">
+    <div class="mc-home">
+      <header class="mc-home-hero">
+        <div class="mc-home-eyebrow"><span lang="zh">真实普通话</span> · Live Mandarin</div>
+        <h1 class="mc-home-h1">Learn the Mandarin<br/><span>natives actually speak.</span></h1>
+        <p class="mc-home-lede">A solo project by a fellow learner. All audio here is harvested from real podcasts and videos, spoken at natural speed — never a textbook dialogue. Pick a word, observe it in the wild, then rebuild it from memory.</p>
+        <div class="mc-home-cta">
+          <button class="mc-home-cta-primary" data-go="search">Start with a word →</button>
+          <button class="mc-home-cta-ghost" data-go="games">or play the assembly</button>
+        </div>
+      </header>
+
+      <section class="mc-home-pillars" aria-label="What this is">
+        <div class="mc-home-pillar">
+          <div class="mc-home-pillar-k">100<sup>%</sup></div>
+          <div class="mc-home-pillar-v">Native-sourced<br/>audio</div>
+        </div>
+        <div class="mc-home-pillar">
+          <div class="mc-home-pillar-k">0</div>
+          <div class="mc-home-pillar-v">Textbook<br/>dialogues</div>
+        </div>
+        <div class="mc-home-pillar">
+          <div class="mc-home-pillar-k">HSK<span>1–9</span></div>
+          <div class="mc-home-pillar-v">Organised<br/>by level</div>
+        </div>
+      </section>
+
+      <section class="mc-home-grid" aria-label="Where to start">
+        <a class="mc-home-tile mc-home-tile-1" data-go="search">
+          <div class="mc-home-tile-num">01 · <span lang="zh">搜索</span></div>
+          <div class="mc-home-tile-name">Search</div>
+          <div class="mc-home-tile-desc">Hanzi, pinyin or English — jump straight to any word in the corpus.</div>
+          <div class="mc-home-tile-cta">Open search →</div>
+        </a>
+        <a class="mc-home-tile mc-home-tile-2" data-go="explore">
+          <div class="mc-home-tile-num">02 · <span lang="zh">浏览</span></div>
+          <div class="mc-home-tile-name">Explore</div>
+          <div class="mc-home-tile-desc">Browse by frequency, character or HSK level.</div>
+        </a>
+        <a class="mc-home-tile mc-home-tile-3" data-go="games">
+          <div class="mc-home-tile-num">03 · <span lang="zh">组句</span></div>
+          <div class="mc-home-tile-name">Assemble</div>
+          <div class="mc-home-tile-desc">Drag tokens to rebuild what a native just said.</div>
+        </a>
+        <a class="mc-home-tile mc-home-tile-4" data-go="collection">
+          <div class="mc-home-tile-num">04 · <span lang="zh">收藏</span></div>
+          <div class="mc-home-tile-name">Collect</div>
+          <div class="mc-home-tile-desc">Save sentences. Come back to them. Make them yours.</div>
+        </a>
+      </section>
+
+      <section class="mc-home-desk" id="mc-home-desk" aria-label="Your desk" hidden></section>
+
+      <section class="mc-home-levels" aria-label="Start at your level">
+        <div class="mc-home-sec-head">
+          <h2 class="mc-home-h2">Start at your level</h2>
+          <span>HSK-tagged words and sentences</span>
+        </div>
+        <div class="mc-home-lvls">
+          <button class="mc-home-lvl mc-home-lvl-1" data-hsk-go="1"><em>01</em><span>HSK 1</span><small>First words</small></button>
+          <button class="mc-home-lvl mc-home-lvl-2" data-hsk-go="2"><em>02</em><span>HSK 2</span><small>Everyday talk</small></button>
+          <button class="mc-home-lvl mc-home-lvl-3" data-hsk-go="3"><em>03</em><span>HSK 3</span><small>Real chat</small></button>
+          <button class="mc-home-lvl mc-home-lvl-4" data-hsk-go="4"><em>04</em><span>HSK 4</span><small>Opinions</small></button>
+          <button class="mc-home-lvl mc-home-lvl-5" data-hsk-go="5"><em>05</em><span>HSK 5</span><small>Nuance</small></button>
+          <button class="mc-home-lvl mc-home-lvl-6" data-hsk-go="6"><em>06</em><span>HSK 6</span><small>Abstract</small></button>
+          <button class="mc-home-lvl mc-home-lvl-7" data-hsk-go="7"><em>7–9</em><span>Mastery</span><small>Native register</small></button>
+        </div>
+      </section>
+
+      <section class="mc-home-why" aria-label="Why this exists">
+        <div class="mc-home-sec-head">
+          <h2 class="mc-home-h2">Why it's built this way</h2>
+          <span>notes from one learner</span>
+        </div>
+        <div class="mc-home-notes">
+          <article class="mc-home-note">
+            <h3>Textbook audio lies</h3>
+            <p>Studio dialogues are read, not spoken. Real Mandarin swallows syllables, drops tones under stress and runs words together — so every clip here comes from unscripted speech.</p>
+          </article>
+          <article class="mc-home-note">
+            <h3>Words live in sentences</h3>
+            <p>A word list gives you a label. Seeing the same word across a dozen real sentences gives you its shape, its register and the company it keeps.</p>
+          </article>
+          <article class="mc-home-note">
+            <h3>Recall beats recognition</h3>
+            <p>Reading a translation feels like learning. Rebuilding the sentence token by token is what actually moves it into memory — that's why assembly is the core loop, not a bonus game.</p>
+          </article>
+          <article class="mc-home-note">
+            <h3>Everything stays on your device</h3>
+            <p>No account, no server, no tracking. Your collections live in this browser — which is exactly why the backup export exists. Save the JSON often.</p>
+          </article>
+        </div>
+      </section>
+
+      <figure class="mc-home-quote">
+        <blockquote lang="zh">听母语者说话，<br/>才听得见普通话。</blockquote>
+        <figcaption>Listen to native voices — that's where Mandarin actually lives.</figcaption>
+      </figure>
+
+
+      <footer class="mc-home-footer">
+        <div class="mc-home-footer-l"><span lang="zh">漢·字</span> · a small, ad-free study tool</div>
+        <div class="mc-home-footer-r"><button class="mc-home-footer-link" data-go="pix">Support the project ♥</button></div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- SEARCH -->
+  <section class="mc-screen" data-screen="search">
+    <div class="mc-search-box">
+      <div class="mc-search-wrap">
+        <input class="mc-search-input" id="mc-search-input" type="text"
+               placeholder="Hanzi, pinyin or English…"
+               autocomplete="off" autocorrect="off" spellcheck="false"/>
+        <div class="mc-suggestions" id="mc-suggestions"></div>
+      </div>
+      <button class="mc-search-btn" id="mc-search-btn">Search</button>
+    </div>
+    <div id="mc-results"></div>
+  </section>
+
+  <!-- EXPLORE -->
+  <section class="mc-screen" data-screen="explore">
+    <div class="mc-explore-controls">
+      <div class="mc-type-filter" style="margin-bottom:0">
+        <button class="mc-pill mc-active" id="btn-expl-words">Words</button>
+        <button class="mc-pill" id="btn-expl-chars">Characters</button>
+        <button class="mc-pill" id="btn-expl-sents">Sentences</button>
+        <button class="mc-pill" id="btn-expl-hsk-words">Words — HSK</button>
+        <button class="mc-pill" id="btn-expl-hsk-sents">Sentences — HSK</button>
+      </div>
+      <div class="mc-token-filter" id="mc-token-filter" style="display:none">
+        <span class="mc-filter-label">total words:</span>
+        <div id="mc-len-pills" style="display:flex;gap:5px;flex-wrap:wrap"></div>
+      </div>
+      <div class="mc-token-filter" id="mc-hsk-level-filter" style="display:none">
+        <span class="mc-filter-label">HSK level:</span>
+        <div id="mc-hsk-level-pills" style="display:flex;gap:5px;flex-wrap:wrap">
+          <button class="mc-pill mc-active mc-hsk-pill-1" data-hsk="1">HSK 1</button>
+          <button class="mc-pill mc-hsk-pill-2" data-hsk="2">HSK 2</button>
+          <button class="mc-pill mc-hsk-pill-3" data-hsk="3">HSK 3</button>
+          <button class="mc-pill mc-hsk-pill-4" data-hsk="4">HSK 4</button>
+          <button class="mc-pill mc-hsk-pill-5" data-hsk="5">HSK 5</button>
+          <button class="mc-pill mc-hsk-pill-6" data-hsk="6">HSK 6</button>
+          <button class="mc-pill mc-hsk-pill-7" data-hsk="7">HSK 7-9</button>
+        </div>
+      </div>
+    </div>
+    <div id="mc-explore-content"></div>
+    <div style="text-align:center;padding:16px 0">
+      <button id="mc-load-more" class="mc-load-more-btn" style="display:none">Load more</button>
+    </div>
+  </section>
+
+  <!-- GAMES -->
+  <section class="mc-screen" data-screen="games">
+    <div class="mc-games-menu" id="mc-games-menu">
+      <header class="mc-games-header">
+        <div class="mc-games-eyebrow"><span lang="zh">玩</span> · Play</div>
+        <h2 class="mc-games-title">Games</h2>
+        <p class="mc-games-lede">Rebuild Mandarin sentences token by token. Start anywhere, or focus on an HSK band.</p>
+      </header>
+      <div class="mc-game-cards">
+        <button class="mc-game-card mc-game-card-hero" id="btn-game-assembly">
+          <div class="mc-game-card-hero-mark" aria-hidden="true"><span lang="zh">组</span></div>
+          <div class="mc-game-card-body">
+            <div class="mc-game-card-eyebrow">Featured</div>
+            <div class="mc-game-card-name">Assembly</div>
+            <div class="mc-game-card-desc">Arrange scrambled tokens into the correct order — the whole corpus, shuffled fresh each round.</div>
+          </div>
+          <div class="mc-game-card-arrow" aria-hidden="true">→</div>
+        </button>
+      </div>
+      <h3 class="mc-games-hsk-title"><span>By level</span><i></i></h3>
+      <p class="mc-games-hsk-sub">Pick an HSK band to focus your assembly rounds on sentences at that level.</p>
+      <div class="mc-hsk-game-levels" id="mc-hsk-game-levels">
+        <button class="mc-hsk-cover mc-hsk-cover-1" data-hsk-game="hsk-assembly" data-hsk-level="1" aria-label="HSK 1 assembly">
+          <span class="mc-hsk-cover-eyebrow">Level 1 · <span lang="zh">初级</span></span>
+          <span class="mc-hsk-cover-title">HSK<em>1</em></span>
+          <span class="mc-hsk-cover-cta">Assemble →</span>
+        </button>
+        <button class="mc-hsk-cover mc-hsk-cover-2" data-hsk-game="hsk-assembly" data-hsk-level="2" aria-label="HSK 2 assembly">
+          <span class="mc-hsk-cover-eyebrow">Level 2 · <span lang="zh">初级</span></span>
+          <span class="mc-hsk-cover-title">HSK<em>2</em></span>
+          <span class="mc-hsk-cover-cta">Assemble →</span>
+        </button>
+        <button class="mc-hsk-cover mc-hsk-cover-3" data-hsk-game="hsk-assembly" data-hsk-level="3" aria-label="HSK 3 assembly">
+          <span class="mc-hsk-cover-eyebrow">Level 3 · <span lang="zh">中级</span></span>
+          <span class="mc-hsk-cover-title">HSK<em>3</em></span>
+          <span class="mc-hsk-cover-cta">Assemble →</span>
+        </button>
+        <button class="mc-hsk-cover mc-hsk-cover-4" data-hsk-game="hsk-assembly" data-hsk-level="4" aria-label="HSK 4 assembly">
+          <span class="mc-hsk-cover-eyebrow">Level 4 · <span lang="zh">中级</span></span>
+          <span class="mc-hsk-cover-title">HSK<em>4</em></span>
+          <span class="mc-hsk-cover-cta">Assemble →</span>
+        </button>
+        <button class="mc-hsk-cover mc-hsk-cover-5" data-hsk-game="hsk-assembly" data-hsk-level="5" aria-label="HSK 5 assembly">
+          <span class="mc-hsk-cover-eyebrow">Level 5 · <span lang="zh">高级</span></span>
+          <span class="mc-hsk-cover-title">HSK<em>5</em></span>
+          <span class="mc-hsk-cover-cta">Assemble →</span>
+        </button>
+        <button class="mc-hsk-cover mc-hsk-cover-6" data-hsk-game="hsk-assembly" data-hsk-level="6" aria-label="HSK 6 assembly">
+          <span class="mc-hsk-cover-eyebrow">Level 6 · <span lang="zh">高级</span></span>
+          <span class="mc-hsk-cover-title">HSK<em>6</em></span>
+          <span class="mc-hsk-cover-cta">Assemble →</span>
+        </button>
+        <button class="mc-hsk-cover mc-hsk-cover-7" data-hsk-game="hsk-assembly" data-hsk-level="7" aria-label="HSK 7-9 assembly">
+          <span class="mc-hsk-cover-eyebrow">Level 7-9 · <span lang="zh">精通</span></span>
+          <span class="mc-hsk-cover-title">HSK<em>7-9</em></span>
+          <span class="mc-hsk-cover-cta">Assemble →</span>
+        </button>
+      </div>
+    </div>
+    <div id="mc-game-area" style="display:none">
+      <div class="mc-practice-shell">
+        <div class="mc-practice-top">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span class="mc-practice-count" id="mc-game-count">— / —</span>
+            <span class="mc-phase-label" id="mc-phase-label"></span>
+          </div>
+          <button class="mc-exit-btn" id="mc-exit-game" aria-label="Exit game">✕</button>
+        </div>
+        <div class="mc-progress-bar">
+          <div class="mc-progress-fill" id="mc-game-progress" style="width:0%"></div>
+        </div>
+        <div id="mc-game-card-area"></div>
+        <nav class="mc-nav" id="mc-game-nav" style="display:none">
+          <button class="mc-nav-btn mc-next" id="btn-game-next">Next round →</button>
+          <button class="mc-nav-btn" id="btn-game-details">View details</button>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTION -->
+  <section class="mc-screen" data-screen="collection">
+    <div class="mc-backup-banner" id="mc-backup-banner" role="note">
+      <div class="mc-backup-banner-txt">
+        <strong>Your data lives only in this browser.</strong>
+        Clearing site data, switching devices, or an unexpected bug can wipe your saved collections. Export a full backup regularly — restoring is one click.
+      </div>
+      <div class="mc-backup-banner-btns">
+        <button class="mc-backup-btn mc-backup-btn-primary" id="mc-backup-export">⬇ Backup all (.json)</button>
+        <button class="mc-backup-btn" id="mc-backup-import">⬆ Restore</button>
+        <button class="mc-backup-close" id="mc-backup-close" aria-label="Dismiss">✕</button>
+      </div>
+    </div>
+    <div class="mc-col-header-row">
+      <div class="mc-col-tabs" id="mc-col-tabs"></div>
+      <button class="mc-icon-btn" id="mc-new-col-btn" title="New collection" aria-label="New collection">＋</button>
+    </div>
+    <div class="mc-col-actions">
+      <button class="mc-practice-btn" id="mc-start-practice">▶ Practice</button>
+    </div>
+    <div id="mc-col-list"></div>
+  </section>
+
+  <!-- KO-FI (donate) -->
+  <section class="mc-screen" data-screen="pix">
+    <div class="mc-pix-page">
+      <div class="mc-pix-watermark" aria-hidden="true" lang="zh">支持</div>
+      <div class="mc-pix-eyebrow"><span lang="zh">支持</span> · Support</div>
+      <h2 class="mc-pix-h1">Keep this site<br/><span>free &amp; ad-free.</span></h2>
+      <p class="mc-pix-lede">Built solo. Any contribution funds hosting, audio processing, and new features.</p>
+      <div class="mc-pix-card">
+        <div class="mc-pix-card-top">
+          <span class="mc-pix-badge">Ko-fi</span>
+          <span class="mc-pix-heart" aria-hidden="true">♥</span>
+        </div>
+        <a class="mc-pix-kofi-btn" id="mc-pix-kofi-btn" href="https://ko-fi.com/mandarin6native" target="_blank" rel="noopener noreferrer">Support on Ko-fi →</a>
+        <p class="mc-pix-paypal-note">Payments via Ko-fi are processed through PayPal.</p>
+      </div>
+      <p class="mc-pix-thanks"><span lang="zh">谢谢</span> · Thank you</p>
+    </div>
+  </section>
+
+  <!-- PRACTICE -->
+  <section class="mc-screen" data-screen="practice">
+    <div class="mc-practice-shell">
+      <div class="mc-practice-top">
+        <span class="mc-practice-count" id="mc-practice-count">— / —</span>
+        <button class="mc-exit-btn" id="mc-exit-practice" aria-label="Exit practice">✕</button>
+      </div>
+      <div class="mc-progress-bar">
+        <div class="mc-progress-fill" id="mc-progress-fill" style="width:0%"></div>
+      </div>
+      <div id="mc-card-area"></div>
+      <nav class="mc-nav" id="mc-practice-nav" style="display:none">
+        <button class="mc-nav-btn mc-next" id="btn-next">Next round →</button>
+        <button class="mc-nav-btn" id="btn-practice-details">View details</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- WORD PAGE -->
+  <section class="mc-screen" data-screen="word">
+    <div id="mc-word-page"></div>
+  </section>
+
+  <!-- OBSERVE -->
+  <section class="mc-screen" data-screen="observe">
+    <div id="mc-observe-page"></div>
+  </section>
+
+</div>
+
+<!-- MODAL: word pick (kept hidden — fill-in removed) -->
+<div id="mc-word-pick-modal" class="mc-modal" style="display:none">
+  <div class="mc-modal-box">
+    <h4 class="mc-modal-title">Pick a word</h4>
+    <div id="mc-word-pick-list" class="mc-modal-list"></div>
+    <button class="mc-modal-cancel" id="mc-word-pick-cancel">Cancel</button>
+  </div>
+</div>
+
+<!-- MODAL: practice -->
+<div id="mc-practice-modal" class="mc-modal" style="display:none">
+  <div class="mc-modal-box mc-modal-box-wide">
+    <h4 class="mc-modal-title">Practice <span id="mc-prac-col-label" class="mc-prac-col-label"></span></h4>
+
+    <div class="mc-prac-qty-row">
+      <label for="mc-prac-qty">Random pick:</label>
+      <input type="number" id="mc-prac-qty" min="1" value="10"/>
+      <button type="button" class="mc-prac-mini-btn" id="mc-prac-qty-apply">Pick randomly</button>
+    </div>
+
+    <div class="mc-prac-select-header">
+      <p class="mc-modal-sub" style="margin-bottom:0">Cards to study:</p>
+      <div class="mc-prac-select-actions">
+        <button type="button" class="mc-prac-mini-btn" id="mc-prac-select-all">Select all</button>
+        <button type="button" class="mc-prac-mini-btn" id="mc-prac-select-none">Select none</button>
+      </div>
+    </div>
+    <div id="mc-prac-card-list" class="mc-modal-list mc-prac-card-list"></div>
+    <span id="mc-prac-select-count" class="mc-prac-select-count">0 selected</span>
+
+    <div class="mc-modal-btns" style="margin-top:14px">
+      <button class="mc-modal-cancel" id="mc-prac-cancel">Cancel</button>
+      <button class="mc-search-btn" id="mc-prac-ok">▶ Start</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: collection -->
+<div id="mc-col-modal" class="mc-modal" style="display:none">
+  <div class="mc-modal-box">
+    <h4 class="mc-modal-title">Save to which collection?</h4>
+    <div id="mc-col-modal-list" class="mc-modal-list"></div>
+    <button class="mc-modal-new" id="mc-modal-new-col">＋ New collection</button>
+    <button class="mc-modal-cancel" id="mc-modal-cancel">Cancel</button>
+  </div>
+</div>
+
+<!-- MODAL: flashcard builder -->
+<div id="mc-flash-modal" class="mc-modal" style="display:none">
+  <div class="mc-modal-box mc-flash-box">
+    <h4 class="mc-modal-title">New flashcard</h4>
+    <p class="mc-modal-sub">Pick a word, choose its meanings, then save it to a collection.</p>
+    <div id="mc-flash-body" class="mc-flash-body"></div>
+    <div class="mc-modal-btns" style="margin-top:14px">
+      <button class="mc-modal-cancel" id="mc-flash-cancel">Cancel</button>
+      <button class="mc-search-btn" id="mc-flash-save">Save flashcard</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL: new collection / rename -->
+<div id="mc-name-modal" class="mc-modal" style="display:none">
+  <div class="mc-modal-box">
+    <h4 class="mc-modal-title" id="mc-name-modal-title">New collection</h4>
+    <input class="mc-modal-input" id="mc-name-input" type="text" placeholder="e.g. HSK1, Verbs…" autocomplete="off"/>
+    <div class="mc-modal-btns">
+      <button class="mc-modal-cancel" id="mc-name-cancel">Cancel</button>
+      <button class="mc-search-btn" id="mc-name-ok">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: generic confirm (destructive actions) -->
+<div id="mc-confirm-modal" class="mc-modal" style="display:none">
+  <div class="mc-modal-box mc-confirm-box">
+    <div class="mc-confirm-icon" id="mc-confirm-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+    </div>
+    <h4 class="mc-modal-title" id="mc-confirm-title">Are you sure?</h4>
+    <p class="mc-confirm-msg" id="mc-confirm-msg"></p>
+    <div class="mc-modal-btns">
+      <button class="mc-modal-cancel" id="mc-confirm-cancel">Cancel</button>
+      <button class="mc-confirm-danger-btn" id="mc-confirm-ok">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOASTS -->
+<div id="mc-toast-container" class="mc-toast-container" aria-live="polite"></div>
+
+<script src="cards.js?v=20260923"></script>
+</body>
+</html>
